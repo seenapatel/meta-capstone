@@ -1,38 +1,1142 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Karla-Bold';
+  src: url(fonts/Karla/static/Karla-Bold.ttf);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'Karla-Medium';
+  src: url(fonts/Karla/static/Karla-Medium.ttf)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@font-face {
+  font-family: 'Karla-ExtraBold';
+  src: url(fonts/Karla/static/Karla-ExtraBold.ttf)
+}
+
+@font-face {
+  font-family: 'Karla-Regular';
+  src: url(fonts/Karla/static/Karla-Regular.ttf)
+}
+
+@font-face {
+  font-family: 'MarkaziText-Medium';
+  src: url(fonts/Markazi_Text/static/MarkaziText-Medium.ttf)
+}
+
+@font-face {
+  font-family: 'MarkaziText-Regular';
+  src: url(fonts/Markazi_Text/static/MarkaziText-Regular.ttf)
+}
+
+
+
+@media only screen and (max-width: 600px){
+  #grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, auto);
+    grid-column-gap: 1rem;
   }
+
+    /* Navigation */
+  nav#grid.navbar{
+    /* grid-area: nav; */
+    background-color: white;
+    align-items: center;
+    grid-column: span 6;
+    grid-row: 1;
+    padding: 1rem;
+  }
+
+  nav.navbar img.logo{
+    grid-column: 1 / span 2;
+    width: 100%;
+    height: auto;
+    justify-self: start;
+  }
+
+  ul.navtext{
+    grid-column: 3 / span 4;
+    margin: 0;
+    padding: 0;
+    justify-self: start;
+    align-self: center;
+    padding-left: 0;
+  }
+
+  li.toplist{ 
+    /* font-size: .001rem; */
+    width: 100%;
+    display: inline;
+    font-family: 'Karla-Bold';
+    padding: 0;
+    margin: 0;
+    /* justify-self: center;
+    align-self: center; */
+  }
+
+  .toplist a {
+    text-decoration: none;
+    color: #333333;
+    padding-inline-start: .3rem;
+    /* text-align: center; */
+    /* white-space: wrap; */
+    font-size: .5rem;
+  }
+
+  /* Main Content */
+
+
+  .main{
+    background-color: white;
+  }
+
+  button{
+    background-color: #f4ce14;
+    color: #333333;
+    border: none;
+    border-radius: .5rem;
+    height: 2rem;
+    font-family: 'Karla-ExtraBold';
+  }
+
+  article#grid.intro {
+    grid-column: span 6;
+    grid-row: 2;
+    /* grid-area: intro; */
+    background-color: #495E57;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 1rem;
+    padding-top: 2rem;
+
+  }
+
+  .intro .sec1{
+    grid-column: 1 / span 3;
+    margin: 0;
+    margin-left: 1rem;
+  }
+
+  button.sec1{
+    width: 70%;
+  }
+
+  h1.sec1{
+    font-family: 'MarkaziText-Medium';
+    color: #f4ce14;
+    font-size: 2rem;
+    font-weight: normal;
+    padding: 0%;
+    align-self: end;
+  }
+
+  h2.sec1{
+    font-family: 'MarkaziText-Regular';
+    color: #edefee;
+    font-weight: normal;
+    font-size: 1.25rem;
+    padding: 0%;
+    align-self: start;
+  }
+
+  p.sec1{
+    font-family: 'Karla-Bold';
+    color: #edefee;
+    font-size: .75rem;
+    padding-right: 1rem;
+  }
+
+  div#foodPlatter{
+    grid-column: 4 / span 3;
+    grid-row: 1 / span 5;
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+    justify-self: end;
+    z-index: 4;
+  }
+
+  img#foodPlatter{
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .empty{
+    grid-column: 1 / span 6;
+    grid-row: 5;
+    background-color: white;
+    padding: 0rem;
+    margin: 0rem;
+    z-index: 3;
+  }
+  /* Specials */
+
+  div#grid.specials{
+    /* grid-area: specials; */
+    grid-column: span 6;
+    grid-row: 3;
+    background-color: white;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 1rem;
+    padding-bottom: 2rem;
+
+  }
+
+
+  h1.sec2{
+    grid-column: 1 / span 4;
+    grid-row: 1;
+    font-family: 'MarkaziText-Regular';
+    color: #333333;
+    font-size: 1.8rem;
+    font-weight: normal;
+  }
+
+  .specials button{
+    grid-column: 5 / span 2;
+    grid-row: 1;
+    align-self: center;
+    width: 100%;
+    font-family: 'Karla-ExtraBold';
+  }
+
+  .specialsCards{
+    grid-column: span 6;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: (6, 1fr);
+    grid-column-gap: 1rem;
+    /* width: 100%; */
+  }
+  
+  /* .specialsCards{ */
+  /* grid-column: span 6; */
+  /* grid-row: 2; */
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem; */
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; */
+  /* column-gap: 1rem; */
+  /* width: 100%; */
+  /* } */
+/* 
+  div#greekSalad.foodCard{
+    grid-column: 1 / span 2;
+    justify-content: flex-start;
+  }
+
+  div#bruschetta.foodCard{
+    grid-column: 2 /span 2;
+    justify-content: center;
+  }
+
+  div#lemonDessert.foodCard{
+    grid-column: 4 / span 2;
+    justify-content: flex-end;
+  }  */
+
+
+  div.foodCard#greekSalad, div.foodCard#bruschetta, div.foodCard#lemonDessert{
+    grid-column: span 2;
+    grid-row: 2;
+    /* align-self: start; */
+    width: 100%;
+    height: 30vh;
+    background-color: #edefee;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    /* width: inherit; */
+    /* padding-bottom: 1rem; */
+    /* font-size: 1em; */
+  }
+
+  div#specialsFood{
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  img#specialsFood{
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+    margin: 0rem;
+  }
+
+  .foodCard h6{
+    grid-row: 2;
+    grid-column: 1;
+    font-family: 'MarkaziText-Medium';
+    color: #333333;
+    /* word-wrap: break-word; */
+    /* width: 100%; */
+    font-weight: normal;
+    font-size: .65rem;
+    align-self: center;
+    justify-self: start;
+    margin: 0%;
+    padding-left: .5rem;
+  }
+
+  p#price{
+    grid-row: 2;
+    grid-column: 2;
+    font-family: 'Karla-Bold';
+    color: #ee9972;
+    font-size: .5rem;
+    justify-self: flex-start;
+    align-self: center;
+    padding-right: .5rem;
+  }
+
+  p#foodDes{
+    grid-row: 3;
+    grid-column: 1 / span 2;
+    font-family: 'Karla-Regular';
+    font-size: .5rem;
+    color: #495E57;
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+
+  p#delivery{
+    grid-row: 4;
+    grid-column: 1;
+    font-family: 'Karla-Bold';
+    color: #333333;
+    font-size: .4rem;
+    padding-left: .5rem;
+    justify-self: start;
+    align-self: center;
+  }
+
+  img#bike{
+    grid-row: 4;
+    grid-column: 2;
+    width: auto;
+    height: .4rem;
+    align-self: center;
+    justify-self: start;
+    padding-right: .5rem;
+  }
+
+
+  /* Testimonials */
+
+  div#grid.testimonials{
+    /* grid-area: testimonials; */
+    grid-column: span 6;
+    grid-row: 4;
+    background-color: #f4ce14;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 1rem;
+    padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+
+  }
+
+  .testimonials h1{
+    grid-column: 1 / span 3;
+    grid-row: 1;
+    text-align: start;
+    font-family: 'MarkaziText-Medium';
+    font-weight: normal;
+    font-size: 2rem;
+    color: #495E57;
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+
+  /* #rhea, #craig, #mike, #emily{
+    height: 8rem;
+  } */
+  #rhea{
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #craig{
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  #mike{
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  #emily{
+    grid-column: 4;
+    grid-row: 2;
+  }
+
+  /* Testimonial Cards */
+
+  div.rateCard{
+    background-color: #495E57;
+    width: 100%;
+    height: 10vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border-radius: .5rem;
+    padding: .25rem;
+    
+  }
+
+  #rate{
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    width: auto;
+    height: 2.5vh;
+    padding: 0rem;
+    margin: 0rem;
+    align-self: flex-end;
+    justify-self: start;
+  }
+
+  div#pfp{
+    grid-column: 1;
+    grid-row: 2;
+    width: 1rem;
+    height: 1rem;
+    overflow: hidden;
+    justify-self: start;
+    border-radius: .25rem;
+  }
+
+  img#pfp{
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .rateCard h6{
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    font-family: 'Karla-Bold';
+    font-size: .5rem;
+    color: #edefee;
+    justify-self: start;
+    align-self: center;
+    margin: 0rem;
+  }
+
+  .rateCard p{
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    font-size: .25rem;
+    font-family: 'Karla-Regular';
+    color: #edefee;
+    justify-self: start;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  /* About */
+
+  article#grid.about{
+    /* grid-area: about; */
+    grid-column: span 6;
+    grid-row: 5;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 1rem;
+    padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .sec5{
+    grid-column: 1 / span 3;
+  }
+
+  .bro1{
+    grid-column: 5 / span 2;
+    grid-row: 1 / span 3;
+    width: 100%;
+    height: 20vh;
+    border-radius: .5rem;
+    overflow: hidden;
+    align-self: start;
+    z-index: 2;
+  }
+
+  .bro2{
+    grid-column: 4 / span 2;
+    grid-row: 1 / span 3;
+    width: 100%;
+    height: 20vh;
+    border-radius: .5rem;
+    overflow: hidden;
+    align-self: end;
+    z-index: 1;
+    /* padding-top: 2rem; */
+  }
+
+  img.bro1, img.bro2{
+    object-fit: cover;
+    object-position: right;
+    height: 100%;
+    width: 100%;
+  }
+
+  .about p{
+    grid-row: 3;
+    font-family: 'Karla-Bold';
+    color: #333333;
+    font-size: .5rem;
+    text-align: justify;
+    padding-right: .5rem;
+    padding-top: 2rem;
+  }
+
+  .about h2{
+    grid-row: 2;
+    justify-self: start;
+    font-family: 'MarkaziText-Regular';
+    font-weight: normal;
+    font-size: 1.25rem;
+    color: #333333;
+    margin: 0rem;
+  }
+
+  .about h1{
+    grid-row: 1;
+    align-self: end;
+    font-size: 2rem;
+    font-weight: normal;
+    font-family: 'MarkaziText-Medium';
+    color: #495E57;
+    margin: 0rem;
+    padding-bottom: 0rem;
+    padding-top: 2rem;
+  }
+
+  /* Footer */
+  footer#grid{
+    /* grid-area: footer; */
+    grid-row: 6;
+    background-color: #edefee;
+    padding: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  footer img.logo {
+    grid-column: 1 / span 3;
+    width: 80%;
+    height: auto;
+    justify-self: start;
+    align-self: center;
+  }
+
+  /* footer nav{
+    padding-left: 3rem;
+  } */
+
+  footer h6{
+    color: #495E57;
+    font-family: 'Karla-Bold';
+    font-size: .55rem;
+    padding: 0rem;
+    /* align-self: stretch;
+    word-wrap: break-word; */
+  }
+
+  footer ul{
+    padding-left: 0%;
+    padding-top: 0%;
+    /* justify-self: center; */
+    /* background-color: #ee9972; */
+    text-align: justify;
+  }
+
+  footer a{
+    text-decoration: none;
+    color: #333333;
+    font-family: 'Karla-Medium';
+    font-size: 0.55rem;
+  }
+
+  .doormat{
+    grid-column: 4;
+
+  }
+
+  .contact{
+    grid-column: 5;
+  }
+
+  .social {
+    grid-column: 6;
+  }
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* universal */
+li{
+  list-style-type: none;
+  margin-left: 0rem;
+  margin-top: 0rem;
+}
+
+a{
+  padding: 0rem;
+}
+
+
+
+@media only screen and (min-width: 961px){
+  #grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* come back to this */
+    /* grid-template-rows: repeat(6, 1fr); */
+    grid-column-gap: 1rem;
+  }
+
+/* Navigation */
+nav#grid.navbar{
+  /* grid-area: nav; */
+  background-color: white;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  grid-column: span 12;
+  grid-row: 1;
+  padding: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+nav.navbar img.logo{
+  grid-column: 3 / span 2;
+  width: 100%;
+  height: auto;
+  justify-self: start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul.navtext{
+  grid-column: 6 / span 6;
+  margin: 0;
+  padding: 0;
+  justify-self: start;
+  padding-left: 0;
+}
+
+li.toplist{ 
+  font-size: .20rem;
+  width: 100%;
+  display: inline;
+  font-family: 'Karla-Bold';
+  padding: 0;
+  margin: 0;
+  align-self: end;
+}
+
+.toplist a {
+  text-decoration: none;
+  color: #333333;
+  padding-inline-start: .95rem;
+  font-size: .80rem;
+}
+
+/* Main Content */
+
+
+.main{
+  background-color: white;
+}
+
+button{
+  background-color: #f4ce14;
+  color: #333333;
+  border: none;
+  border-radius: .5rem;
+  height: 3rem;
+  font-family: 'Karla-ExtraBold';
+}
+
+article#grid.intro {
+  grid-column: span 12;
+  grid-row: 2;
+  /* grid-area: intro; */
+  background-color: #495E57;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1rem;
+  padding-top: 1rem;
+  padding-top: 2rem;
+
+}
+
+.intro .sec1{
+  grid-column: 3 / span 3;
+  margin: 0;
+  margin-left: .5rem;
+}
+
+button.sec1{
+  width: 70%;  
+}
+
+h1.sec1{
+  font-family: 'MarkaziText-Medium';
+  color: #f4ce14;
+  font-size: 2.5rem;
+  font-weight: normal;
+  padding: 0%;
+  align-self: end;
+}
+
+h2.sec1{
+  font-family: 'MarkaziText-Regular';
+  color: #edefee;
+  font-weight: normal;
+  font-size: 1.75rem;
+  padding: 0%;
+  align-self: start;
+}
+
+p.sec1{
+  font-family: 'Karla-Bold';
+  color: #edefee;
+  font-size: .85rem;
+}
+
+div#foodPlatter{
+  grid-column: 8 / span 3;
+  grid-row: 1 / span 5;
+  width: 100%;
+  height: 17rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin-right: .75rem;
+  justify-self: end;
+  z-index: 4;
+  box-shadow: .45rem .55rem .35rem #333333;
+}
+
+img#foodPlatter{
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.empty{
+  grid-column: 1 / span 12;
+  grid-row: 5;
+  background-color: white;
+  padding: 0rem;
+  margin: 0rem;
+  z-index: 3;
+}
+
+/* Specials */
+
+div#grid.specials{
+  /* grid-area: specials; */
+  grid-column: span 12;
+  grid-row: 3;
+  background-color: white;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-column-gap: 1rem;
+  padding-bottom: 3rem;
+
+}
+
+
+h1.sec2{
+  grid-column: 3 / span 4;
+  grid-row: 1;
+  font-family: 'MarkaziText-Regular';
+  color: #333333;
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
+.specials button{
+  grid-column: 9 / span 2;
+  grid-row: 1;
+  align-self: center;
+  width: 100%;
+  font-family: 'Karla-ExtraBold';
+}
+
+.specialsCards{
+ grid-column: 3 / span 8;
+ grid-row: 2;
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ column-gap: 1rem;
+}
+
+div#greekSalad{
+  grid-column: 1;
+}
+
+div#bruschetta{
+  grid-column: 2;
+}
+
+div#lemonDessert{
+  grid-column: 3;
+}
+
+.foodCard{
+  grid-row: 2;
+  background-color: #edefee;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr .5fr .75fr .25fr;
+  padding-bottom: 1rem;
+}
+
+div#specialsFood{
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  width: 100%;
+  height: 10rem;
+  overflow: hidden;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  margin: 0rem;
+  padding: 0rem;
+}
+
+img#specialsFood{
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.foodCard h6{
+  grid-row: 2;
+  grid-column: 1;
+  font-family: 'MarkaziText-Medium';
+  color: #333333;
+  font-weight: normal;
+  font-size: 1.5rem;
+  align-self: center;
+  justify-self: start;
+  margin: 0%;
+  padding-left: 1rem;
+}
+
+p#price{
+  grid-row: 2;
+  grid-column: 2;
+  font-family: 'Karla-Bold';
+  color: #ee9972;
+  font-size: .75rem;
+  justify-self: end;
+  align-self: center;
+  padding-right: 1rem;
+}
+
+p#foodDes{
+  grid-row: 3;
+  grid-column: 1 / span 2;
+  font-family: 'Karla-Regular';
+  font-size: .8rem;
+  color: #495E57;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+p#delivery{
+  grid-row: 4;
+  grid-column: 1;
+  font-family: 'Karla-Bold';
+  color: #333333;
+  font-size: .75rem;
+  padding-left: 1rem;
+  justify-self: start;
+  align-self: center;
+}
+
+img#bike{
+  grid-row: 4;
+  grid-column: 2;
+  width: auto;
+  height: .75rem;
+  align-self: center;
+  justify-self: start;
+  padding-right: 1rem;
+}
+
+
+/* Testimonials */
+
+div#grid.testimonials{
+  /* grid-area: testimonials; */
+  grid-column: span 12;
+  grid-row: 4;
+  background-color: #f4ce14;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1rem;
+  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+
+}
+
+.testimonials h1{
+  grid-column: 3 / span 3;
+  grid-row: 1;
+  text-align: start;
+  font-family: 'MarkaziText-Medium';
+  font-weight: normal;
+  font-size: 2.5rem;
+  color: #495E57;
+  margin: 0;
+  padding-bottom: 2rem;
+}
+
+#rhea, #craig, #mike, #emily{
+  height: 8rem;
+}
+#rhea{
+  grid-column: 3 / span 2;
+  grid-row: 2;
+}
+
+#craig{
+  grid-column: 5 / span 2;
+  grid-row: 2;
+}
+
+#mike{
+  grid-column: 7 / span 2;
+  grid-row: 2;
+}
+
+#emily{
+  grid-column: 9 / span 2;
+  grid-row: 2;
+}
+
+/* Testimonial Cards */
+
+div.rateCard{
+  background-color: #495E57;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border-radius: .5rem;
+  padding: .5rem;
+  
+}
+
+#rate{
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  width: 60%;
+  height: auto;
+  padding: 0rem;
+  margin: 0rem;
+  align-self: start;
+}
+
+div#pfp{
+  grid-column: 1;
+  grid-row: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  justify-self: start;
+  border-radius: .5rem;
+}
+
+img#pfp{
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.rateCard h6{
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0;
+  font-family: 'Karla-Bold';
+  font-size: .75rem;
+  color: #edefee;
+  align-self: center;
+  margin: 0rem;
+}
+
+.rateCard p{
+  grid-column: 1 / span 2;
+  grid-row: 3;
+  font-size: .5rem;
+  font-family: 'Karla-Regular';
+  color: #edefee;
+}
+
+/* About */
+
+article#grid.about{
+  /* grid-area: about; */
+  grid-column: span 12;
+  grid-row: 5;
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1rem;
+  padding: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
+.sec5{
+  grid-column: 3 / span 3;
+}
+
+.bro1{
+  grid-column: 8 / span 3;
+  grid-row: 1 / span 3;
+  width: 100%;
+  height: 18rem;
+  border-radius:.5rem;
+  overflow: hidden;
+  align-self: start;
+  z-index: 2;
+  box-shadow: .45rem .55rem .35rem #333333;
+}
+
+.bro2{
+  grid-column: 6 / span 3;
+  grid-row: 1 / span 3;
+  width: 100%;
+  height: 18rem;
+  border-radius:.5rem;
+  overflow: hidden;
+  align-self: end;
+  z-index: 1;
+  /* margin-top: 2rem; */
+  box-shadow: .45rem .55rem .35rem #333333;
+}
+
+img.bro1, img.bro2{
+  object-fit: cover;
+  object-position: right;
+  height: 100%;
+  width: 100%;
+}
+
+.about p{
+  grid-row: 3;
+  font-family: 'Karla-Bold';
+  color: #333333;
+  font-size: .85rem;
+  text-align: justify;
+  padding-right: .5rem;
+  padding-top: 2rem;
+}
+
+.about h2{
+  grid-row: 2;
+  justify-self: start;
+  font-family: 'MarkaziText-Regular';
+  font-weight: normal;
+  font-size: 1.75rem;
+  color: #333333;
+  margin: 0rem;
+}
+
+.about h1{
+  grid-row: 1;
+  align-self: end;
+  font-size: 2.5rem;
+  font-weight: normal;
+  font-family: 'MarkaziText-Medium';
+  color: #495E57;
+  margin: 0rem;
+  padding-bottom: 0rem;
+  padding-top: 2rem;
+}
+
+/* Footer */
+footer#grid{
+  /* grid-area: footer; */
+  grid-row: 6;
+  background-color: #edefee;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+footer img.logo {
+  grid-column: 3 / span 2;
+  width: 100%;
+  height: auto;
+  justify-self: start;
+  align-self: center;
+}
+
+footer nav{
+  padding-left: 3rem;
+}
+
+footer h6{
+  color: #495E57;
+  font-family: 'Karla-Bold';
+}
+
+
+footer ul{
+  padding-left: 0%;
+  padding-top: 0%;
+  align-items: start;
+}
+
+footer a{
+  text-decoration: none;
+  color: #333333;
+  font-family: 'Karla-Medium';
+  font-size: 0.75rem;
+}
+
+.doormat{
+  grid-column: 5 / span 2;
+
+}
+
+.contact{
+  grid-column: 7 / span 2;
+}
+
+.social {
+  grid-column: 9 / span 2;
+}
 }
