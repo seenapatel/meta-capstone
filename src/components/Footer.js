@@ -1,4 +1,6 @@
-import logo from './images/Logo.svg'
+// import React from "react";
+import logo from '../images/Logo.svg'
+// import styles from '../App.css';
 function Footer (){
     return(
         <footer className="footer" id="grid">

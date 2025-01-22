@@ -1,24 +1,50 @@
-import rhea from "./images/RheaPersona.jpg"
-import rate from "./images/rating.png"
-import mike from "./images/Mike.jpg"
-import craig from "./images/Craig.jpeg"
-import emily from "./images/Emily.jpeg"
-import greekSalad from "./images/greeksalad.jpg"
-import bruschetta from "./images/bruchetta.svg"
-import lemonDessert from "./images/lemondessert.jpg"
-import bro1 from "./images/MarioandAdrianA.jpg"
-import bro2 from "./images/MarioandAdrianb.jpg"
-import bike from "./images/bike.png"
-import food from "./images/restaurantfood.jpg"
+import React from "react";
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom"
+import styles from '../App.css';
+import BookingForm from "./BookingForm.js";
+import BookingPage from "../components/BookingPage.js"
+import CallToAction from "../components/CallToAction.js"
+import Homepage from "../components/Homepage.js"
+import Specials from "../components/Specials.js"
+import Chicago from "../components/Chicago.js"
+import CustomersSay from "../components/CustomersSay.js"
+import Nav from "../components/Nav.js"
+import rhea from "../images/RheaPersona.jpg"
+import rate from "../images/rating.png"
+import mike from "../images/Mike.jpg"
+import craig from "../images/Craig.jpeg"
+import emily from "../images/Emily.jpeg"
+import greekSalad from "../images/greeksalad.jpg"
+import bruschetta from "../images/bruchetta.svg"
+import lemonDessert from "../images/lemondessert.jpg"
+import bro1 from "../images/MarioandAdrianA.jpg"
+import bro2 from "../images/MarioandAdrianb.jpg"
+import bike from "../images/bike.png"
+import food from "../images/restaurantfood.jpg"
 
 function Main (){
-    return(
-        <main className="main">
+
+    // <Routes>
+    //     <Route path="/" element={<Homepage />} >
+    //         <Route path="/nav" element={<Nav />} />
+    //         <Route path="/cta" element={<CallToAction />} />
+    //         <Route path="/specials" element={<Specials />} />
+    //         <Route path="/say" element={<CustomersSay />} />
+    //         <Route path="/chicago" element={<Chicago />} />
+    //         <Route path="/booking" element={<BookingForm />} />
+    //     </Route>
+    // </Routes>
+
+    // return(
+    /*  <main className="main">
+
             <article className="intro" id="grid">
                     <h1 className="sec1">Little Lemon</h1>
                     <h2 className="sec1">Chicago</h2>
                     <p className="sec1">We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-                    <button className="sec1">Reserve a Table</button>
+                    
+                        <button className="sec1" type="button"><a>Reserve a Table</a></button>
+                   
                 <div id="foodPlatter">
                     <img src={food} alt="food platter" id="foodPlatter"/>
                 </div>
@@ -26,9 +52,11 @@ function Main (){
                     <br></br>
                 </div>
             </article>
+
             <div className="specials" id="grid">
                 <h1 className="sec2">This Week's Specials!</h1>
-                <button>Online Menu</button>
+                <button type="button">Online Menu</button>
+
                 <div className="specialsCards">
                     <div className="foodCard" id="greekSalad">
                         <div id='specialsFood'>
@@ -108,8 +136,9 @@ function Main (){
                     <img src={bro1} alt="mario and adrian 1" className="bro1"/>
                 </div>
             </article>
-        </main>
-    )
+        </main> */
+    // ) 
 }
+
 
 export default Main;

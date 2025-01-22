@@ -1,5 +1,6 @@
-import styles from './App.css';
-import logo from './images/Logo.svg'
+// import React from "react";
+import logo from '../images/Logo.svg'
+
 function Nav() {
     return(
             <nav className="navbar" id="grid">
@@ -13,7 +14,7 @@ function Nav() {
                     <li className='toplist'><a href="">Login</a></li>
                 </ul>
             </nav>
-       
     )
 }
+
 export default Nav;
