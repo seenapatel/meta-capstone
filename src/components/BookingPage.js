@@ -1,9 +1,9 @@
 // import React from "react";
 import BookingForm from "./BookingForm.js";
 
-function BookingPage({availableTimes, updateTimes}){
+function BookingPage(props){
     return(
-        <BookingForm availableTimes={availableTimes} updateTimes={updateTimes}/>
+        <BookingForm availableTimes={props.availableTimes} updateTimes={props.updateTimes} submitForm={props.submitForm}/>
     )
 }
 

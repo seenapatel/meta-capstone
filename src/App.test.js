@@ -38,6 +38,7 @@ test('renders BookingForm button and labels', () => {
 
 
 test('renders inital times correctly', () => {
+    render(<BookingForm />)
     const initialTimes = initializeTimes();
     expect(initialTimes).toEqual([
     "17:00",
@@ -50,6 +51,7 @@ test('renders inital times correctly', () => {
 });
 
 test('updates dates with  available times', () => {
+    render (<BookingForm/>)
     const mockUpdate = jest.fn();
     const mockUpdateTimes = updateTimes(mockUpdate);
 
