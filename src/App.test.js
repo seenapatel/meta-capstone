@@ -37,7 +37,7 @@ test('renders BookingForm button and labels', () => {
 });
 
 
-test('renders inital times correctly', () => {
+test('renders initial times correctly', () => {
     render(<BookingForm />)
     const initialTimes = initializeTimes();
     expect(initialTimes).toEqual([
@@ -60,5 +60,40 @@ test('updates dates with  available times', () => {
     expect(mockUpdate).toHaveBeenCalledWith({
         type: "update_times",
         payload: ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"],
+    });
+});
+
+describe('BookingForm', () => {
+    test('should have required attributes on the date input', () => {
+        render(<BookingForm />);
+
+        const dateInput = screen.getByLabelText(/Choose Date/i);
+        expect(dateInput).toHaveAttribute('type', 'date');
+        expect(dateInput).toHaveAttribute('min');
+        expect(dateInput).toHaveAttribute('required');
+    });
+
+    test('should have required and min/max attributes on guests input', () => {
+        render(<BookingForm />);
+
+        const guestsInput = screen.getByLabelText(/Number of Guests/i);
+        expect(guestsInput).toHaveAttribute('type', 'number');
+        expect(guestsInput).toHaveAttribute('min', '1');
+        expect(guestsInput).toHaveAttribute('max', '10');
+        expect(guestsInput).toHaveAttribute('required');
+    });
+
+    test('should have required attribute on occasion select', () => {
+        render(<BookingForm />);
+
+        const occasionSelect = screen.getByLabelText(/Occasion/i);
+        expect(occasionSelect).toHaveAttribute('required');
+    });
+
+    test('should have required attribute on time select', () => {
+        render(<BookingForm />);
+
+        const timeSelect = screen.getByLabelText(/Choose Time/i);
+        expect(timeSelect).toHaveAttribute('required');
     });
 });

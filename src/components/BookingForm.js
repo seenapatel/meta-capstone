@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React, {useEffect, formReducer, combineReducers } from "react";
 import { useState } from "react";
 // import App from "App.js";
 
@@ -8,121 +8,203 @@ function BookingForm(props) {
     const[date, setDate] = useState("");
     const[times, setTimes] = useState("");
     const[occasion, setOccasion] = useState("");
+    const [isFormValid, setIsFormValid] = useState(false);
+    const [errors, setErrors] = useState({
+        date: "",
+        times: "",
+        guests: "",
+        occasion: "",
+    });
 
-    // const formatDate = (date) => { 
-    //     const dateObj = new Date(date);
-    //     const month = String(dateObj.getMonth() + 1).padStart(2, '0'); //get month with a 0 in front
-    //     const day = String(dateObj.getDate()).padStart(2, '0'); //get day with a 0 in front
-    //     const year = dateObj.getFullYear();
-    //     return `${month}-${day}-${year}`;
-    // }
+    // Get today's date for the minimum date validation
+    const today = new Date().toISOString().split("T")[0];
 
-    // const convertToAPIFormat = (date) => {
-    //     const [month, day, year] = date.split("-");
-    //     return `${year}-${month}-${day}`; //convert date to YYYY-MM-DD
-    // }
+    // Reset form on page load (if required)
+    useEffect(() => {
+        setGuests("");
+        setDate("");
+        setTimes("");
+        setOccasion("");
+        setErrors({
+            date: "",
+            times: "",
+            guests: "",
+            occasion: "",
+        });
+        setIsFormValid(false);
+    }, []); // Empty array ensures this only runs on mount (refresh)
 
-//    useEffect(() => {
-//     if (date) {
-//         console.log("Updating times for", date);
-//         updateTimes(date);
-//         }
-//     }, [date, updateTimes]);
+    // Validation Function
+    const validateForm = () => {
+        const newErrors = {};
 
-//     useEffect(() => {
-//         console.log("Times have been updated", availableTimes);
-//     }, [availableTimes]);
+        if (!date) {
+            newErrors.date = "Please choose a date.";
+        } else if (date < today) {
+            newErrors.date = "Date cannot be in the past.";
+        }
 
-    // const availableTimes = props.availableTimes;
+        if (!times) {
+            newErrors.times = "Please select a time.";
+        }
 
-    const handleChange = (e) => {
-        setDate(e);
-        props.updateTimes(e);
+        if (!guests || guests <= 1 || guests >= 10) {
+            newErrors.guests = "Number of guests must be between 1 and 10.";
+        }
+
+        if (!occasion) {
+            newErrors.occasion = "Please select an occasion.";
+        }
+
+        setErrors(newErrors);
+
+        // If there are no errors, form is valid
+        setIsFormValid(
+            !newErrors.date && !newErrors.times && !newErrors.guests && !newErrors.occasion
+        );
+    };
+
+    const handleDateChange = (e) => {
+        setDate(e.target.value);
+        props.updateTimes(e.target.value);
+        validateForm();
     }
 
+    const handleTimesChange = (e) => {
+        setTimes(e.target.value);
+        validateForm();
+    };
+
+    const handleGuestsChange = (e) => {
+        setGuests(e.target.value);
+        validateForm();
+    };
+
+    const handleOccasionChange = (e) => {
+        setOccasion(e.target.value);
+        validateForm();
+    }
+   
     const handleSubmit = (e) => {
         e.preventDefault();
         props.submitForm(e);
+        validateForm();
     }
 
-    //initialize date to current date format
-    // useEffect(() => {
-    //     const today = new Date();
-    //     const formattedDate = formatDate(today);
-    //     setDate(formattedDate);
-    // }, []);
 
     return(
+    <React.Fragment> 
+        <div className="formBody">
         <form 
             className="bookingForm" 
             onSubmit={handleSubmit}
-            style= {{
-                    display: "grid",
-                    maxWidth: "200px",
-                    gap: "20px"
-                    }}
+            // style= {{
+            //         display: "grid",
+            //         maxWidth: "200px",
+            //         gap: "20px"
+            //         }}
         >
             
-            <h1>Book Now</h1>
 
+            <h1 id="book-now">Book Now</h1>
+
+            <React.Fragment>
+            <div className="date">
             <label htmlFor="res-date">Choose Date</label>
             <input
+                className="inputs"
                 type="date"
                 id="res-date"
                 value={date} 
-                onChange={e => handleChange(e.target.value)} //convert date to user format
+                min={today} //minimum date is today
+                onChange={handleDateChange} //convert date to user format
                 required
-            />
+            /> 
+                 <br/>
+                {errors.date && <span className="error">{errors.date}</span>}
+           </div>
+            </React.Fragment>
+            
+            <React.Fragment>
+                <div className="time">
+                    <label htmlFor="res-time">Choose Time</label>
+                    <select
+                        className="inputs"
+                        id="res-time "
+                        placeholder="Select a Time"
+                        value={times}
+                        onChange={handleTimesChange}
+                        required
+                    >
+                        <option value="">Select a Time</option>
+                        {props.availableTimes.availableTimes.map((availableTimes => {return <option key={availableTimes} value={availableTimes}>{availableTimes}</option>}))}
 
-            <label htmlFor="res-time">Choose Time</label>
-            <select
-                id="res-time "
-                value={times}
-                onChange={e => setTimes(e.target.value)}
-                required
-            >
-                <option value="">Select a Time</option>
+                    </select>   
+                    <br/>
+                    {errors.times && <span className="error">{errors.times}</span>}
+                </div>
+            </React.Fragment>
 
-                {props.availableTimes.availableTimes.map((availableTimes => {return <option key={availableTimes} value={availableTimes}>{availableTimes}</option>}))}
-
-            </select>    
-
+            <React.Fragment>
+            <div className="guests">
             <label htmlFor="guests">Number of Guests</label>
             <input 
+                className="inputs"
                 type="number" 
-                placeholder="1" 
-                min="1" 
-                max="10" 
+                placeholder="0" 
+                // min="1" 
+                // max="10" 
                 id="guests" 
                 value={guests}
-                onChange={e => setGuests(e.target.value)}
+                onChange={handleGuestsChange}
                 required
             />
+                <br/>
+                {errors.guests && <span className="error">{errors.guests}</span>}    
+            </div>
+            </React.Fragment>
 
-            <label htmlFor="occasion">Occasion</label>
-            <select 
-                id="occasion"
-                value={occasion}
-                onChange={e => setOccasion(e.target.value)}
-                required
-            >
-                <option selected>Select an Occasion</option>
-                <option>Birthday</option>
-                <option>Anniversary</option>
-            </select>
+            <React.Fragment>
+                <div className="occasion">
+                <label htmlFor="occasion">Occasion</label>
+                <select 
+                    className="inputs"
+                    id="occasion"
+                    placeholder="Select an Occasion"
+                    value={occasion}
+                    onChange={handleOccasionChange}
+                    required
+                >
+                    <option value="">Select an Occasion</option>
+                    <option>Birthday</option>
+                    <option>Anniversary</option>
+                </select>
+                <br/>
+                {errors.occasion && <span className="error">{errors.occasion}</span>}
+                </div>
+            </React.Fragment>
 
-            <input 
+            <React.Fragment>
+            <button 
+                className="reserve"
                 type="submit" 
                 value="Make Your Reservation"
-                style={{
-                    backgroundColor: "yellow",
-                    color: "black",
-                    padding: "10px",
-                    border: "none",
-                    cursor: "pointer",
-                  }}
-            />
+                // style={{
+                //     backgroundColor: "yellow",
+                //     color: "black",
+                //     padding: "10px",
+                //     border: "none",
+                //     cursor: "pointer",
+                //   }}
+                disabled={!isFormValid}
+                aria-label="Submit form"
+                required
+            >Reserve</button>
+            </React.Fragment>
+            
         </form>
+        </div>
+    </React.Fragment>
     )
 }
 

@@ -118,8 +118,9 @@
     margin-left: 1rem;
   }
 
-  button.sec1{
+  button.sec1:hover{
     width: 70%;
+    cursor: pointer;
   }
 
   h1.sec1{
@@ -449,7 +450,7 @@
   .rateCard p{
     grid-column: 1 / span 2;
     grid-row: 3;
-    font-size: .25rem;
+    font-size: .5rem;
     font-family: 'Karla-Regular';
     color: #edefee;
     justify-self: start;
@@ -596,6 +597,99 @@
     grid-column: 6;
   }
 
+  /* Booking Form */
+
+  div.formBody{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 1rem;
+    background-color: #495E57;
+    padding: 1rem;
+  }
+  
+  form.bookingForm{
+    grid-column: span 6;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    padding: 0rem;
+    margin: 0rem;
+  }
+  
+  h1#book-now{
+    grid-row: 1;
+    font-family: 'MarkaziText-Medium';
+    color: #f4ce14;
+    font-size: 2.5rem;
+    align-self: center;
+    justify-self: center;
+  }
+  
+  label{
+    /* grid-column: 1; */
+    font-family: 'MarkaziText-Regular';
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: #edefee;
+    /* margin-left: 1.5rem; */
+    padding: .5rem;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    display: block;
+  }
+  
+  .inputs{
+    /* grid-column: 2; */
+    font-family: "Karla-Regular";
+    font-size: 1rem;
+    padding: 0rem;
+    margin: 0rem;
+    border: none;
+    border-radius: .25rem;
+    justify-self: center;
+    align-self: center;
+    display: block;
+    color: #333333;
+    text-align: center;
+  }
+  
+  form > div{
+    justify-self: center;
+    text-align: justify;
+  }
+  
+  .error{
+    display: block;
+    color: #ee9972;
+    font-family: 'Karla-Bold';
+    font-size: .75rem;
+  }
+  
+  br{
+    display: none;
+    margin: 1rem;
+  }
+  
+  button.reserve{
+    cursor: pointer;
+    justify-self: center;
+    width: 30%;
+    display: block;
+  }
+  .confirmedBody{
+    background-color: #333333;
+    padding: 4rem;
+  }
+  
+  .confirmed{
+  text-align: center;
+  color: #edefee;
+  font-family: "MarkaziText-Medium";
+  font-size: 3rem;
+  }
+
 }
 
 /* universal */
@@ -607,6 +701,8 @@ li{
 
 a{
   padding: 0rem;
+  text-decoration: none;
+  color: #333333;
 }
 
 
@@ -685,6 +781,7 @@ article#grid.intro {
   background-color: #495E57;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-row: 7;
   grid-column-gap: 1rem;
   padding-top: 1rem;
   padding-top: 2rem;
@@ -697,7 +794,8 @@ article#grid.intro {
   margin-left: .5rem;
 }
 
-button.sec1{
+button.sec1{ 
+  grid-row: 4;
   width: 70%;  
 }
 
@@ -708,6 +806,7 @@ h1.sec1{
   font-weight: normal;
   padding: 0%;
   align-self: end;
+  grid-row: 1;
 }
 
 h2.sec1{
@@ -717,12 +816,14 @@ h2.sec1{
   font-size: 1.75rem;
   padding: 0%;
   align-self: start;
+  grid-row: 2;
 }
 
 p.sec1{
   font-family: 'Karla-Bold';
   color: #edefee;
   font-size: .85rem;
+  grid-row: 3;
 }
 
 div#foodPlatter{
@@ -963,9 +1064,10 @@ div.rateCard{
   grid-row: 1;
   width: 60%;
   height: auto;
-  padding: 0rem;
-  margin: 0rem;
+  margin-left: -.5rem;
+  margin-top: -1.5rem;
   align-self: start;
+  overflow: hidden;
 }
 
 div#pfp{
@@ -999,9 +1101,10 @@ img#pfp{
 .rateCard p{
   grid-column: 1 / span 2;
   grid-row: 3;
-  font-size: .5rem;
+  font-size: .65rem;
   font-family: 'Karla-Regular';
   color: #edefee;
+  padding-bottom: .25rem;
 }
 
 /* About */
@@ -1138,5 +1241,106 @@ footer a{
 
 .social {
   grid-column: 9 / span 2;
+}
+
+
+/* Booking Form */
+
+div.formBody{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1rem;
+  background-color: #495E57;
+  padding: 1rem;
+}
+
+form.bookingForm{
+  grid-column: 3 / span 8;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  padding: 0rem;
+  margin: 0rem;
+}
+
+h1#book-now{
+  grid-row: 1;
+  font-family: 'MarkaziText-Medium';
+  color: #f4ce14;
+  font-size: 2.5rem;
+  align-self: center;
+  justify-self: center;
+}
+
+label{
+  /* grid-column: 1; */
+  font-family: 'MarkaziText-Regular';
+  font-weight: normal;
+  font-size: 1.5rem;
+  color: #edefee;
+  /* margin-left: 1.5rem; */
+  padding: .5rem;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  display: block;
+}
+
+.inputs{
+  /* grid-column: 2; */
+  font-family: "Karla-Regular";
+  font-size: 1rem;
+  padding: 0rem;
+  margin: 0rem;
+  border: none;
+  border-radius: .25rem;
+  justify-self: center;
+  align-self: center;
+  display: block;
+  color: #333333;
+  text-align: center;
+}
+
+form > div{
+  justify-self: center;
+  text-align: justify;
+}
+
+.error{
+  display: block;
+  color: #ee9972;
+  font-family: 'Karla-Bold';
+  font-size: .75rem;
+}
+
+br{
+  display: none;
+  margin: 1rem;
+}
+
+button.reserve{
+  cursor: pointer;
+  justify-self: center;
+  width: 30%;
+  display: block;
+}
+/* 
+button.reserve:hover{
+  background-color: #fbdabb;
+  color: #495E57;
+  grid-column: span 2;
+} */
+
+.confirmedBody{
+  background-color: #333333;
+  padding: 15rem;
+}
+
+.confirmed{
+text-align: center;
+color: #edefee;
+font-family: "MarkaziText-Medium";
+font-size: 5rem;
 }
 }

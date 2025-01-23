@@ -1,6 +1,6 @@
 // import React from "react";
 import logo from '../images/Logo.svg'
-// import styles from '../App.css';
+import {Link} from "react-router-dom";
 function Footer (){
     return(
         <footer className="footer" id="grid">
@@ -8,10 +8,10 @@ function Footer (){
             <nav className="doormat">
                 <h6>Doormat Navigation</h6>
                 <ul>
-                    <li><a href="">Home</a></li>
+                    <li><Link to="/"><a href="">Home</a></Link></li>
                     <li><a href="">About</a></li>
                     <li><a href="">Menu</a></li>
-                    <li><a href="">Reservations</a></li>
+                    <li><Link to="/booking"><a href="">Reservations</a></Link></li>
                     <li><a href="">Order Online</a></li>
                     <li><a href="">Login</a></li>
                 </ul>

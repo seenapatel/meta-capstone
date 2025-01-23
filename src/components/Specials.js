@@ -9,7 +9,7 @@ function Specials () {
     return(
         <div className="specials" id="grid">
                 <h1 className="sec2">This Week's Specials!</h1>
-                <button>Online Menu</button>
+                <button aria-label="Online Menu">Online Menu</button>
                 <div className="specialsCards">
                     <div className="foodCard" id="greekSalad">
                         <div id='specialsFood'>
